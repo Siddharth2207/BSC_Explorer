@@ -20,7 +20,8 @@ connectDB();
 
 app.get('/save', async (req, res) => {
   let transaction =await web3.eth.getTransactionReceipt(req.body.hash)  
-  let data = await web3.eth.getTransaction(req.body.hash)   
+  let data = await web3.eth.getTransaction(req.body.hash)    
+  
 
   let save_event = await TRANSACTIONS.create({
     blockHash : transaction.blockHash,
